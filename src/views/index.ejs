@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Mr Khamlichi Mall</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!-- bower:js -->
+		<script src="../../libs/jquery/dist/jquery.js"></script>
+		<script src="../../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+		<!-- endbower -->
+		<!-- bower:css -->
+		<link rel="stylesheet" href="../../libs/bootstrap/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../libs/font-awesome/web-fonts-with-css/css/fontawesome.min.css" />
+		<!-- endbower -->
+		<!-- inject:css -->
+		<link rel="stylesheet" href="../../libs/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../../libs/css/main.css">
+		<link rel="stylesheet" href="../../libs/css/style.css">
+		<!-- endinject -->
+		<script src="../../libs/angular.min.js"></script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="/">Mall</a>
+				<nav>
+					<a href="#menu">Menu</a>
+				</nav>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<% if(req.user) { %>
+					<li>
+						<h4><%= req.user.username%><label>(Connected)</label></h4>
+					</li>
+					<% } %>
+
+					<%
+					nav.forEach(val => {
+						if (val.Text === 'Sign in / Sign up' && req.user) {
+							return;
+						}
+
+						if(val.Text === 'Panier' && !req.user) {
+						    return;
+						}
+                    %>
+					<li>
+						<a href="<%=val.Link%>">
+							<%=val.Text%>
+						</a>
+					</li>
+					<% }) %>
+
+                    <% if(req.user) { %>
+					<li>
+						<a href="/auth/logout">Disconnect</a>
+					</li>
+                    <% } %>
+				</ul>
+			</nav>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<h1>Bienvenue dans votre mall</h1>
+					<p>Soldes marques , Rapport qualité prix est par la !</p>
+				</div>
+				<video autoplay loop muted playsinline src="../../images/banner.mp4"></video>
+			</section>
+
+		<!-- Highlights -->
+			<section class="wrapper">
+				<div class="inner">
+					<header class="special">
+						<h2>Sport , Classe marque</h2>
+						<p>Venez et profitez des soldes</p>
+					</header>
+					<div class="highlights">
+						<section>
+							<div class="content">
+								<header>
+									<img src="../../images/chanel.png">
+									<h3>Chanel</h3>
+								</header>
+								<p>Des sacs à main pour femmes de la maison de haute couture française Chanel . Les dernières collections Sacs de CHANEL sont là. </p>
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<header>
+									<img src="../../images/nike.png">
+									<h3>Nike</h3>
+								</header>
+								<p>Nike est une entreprise spécialisée dans la conception et la fabrication de chaussures, vêtements et matériel de sport. vous trouverez la meilleure sélection de produits incontournables et innovants. Livraison et retours gratuits.</p>
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<header>
+									<img src="../../images/Lacoste.png">
+									<h3>Lacoste</h3>
+								</header>
+								<p> LACOSTE une marque unique de luxe décontracté incarnant l'élégance à la française. Les dernières collections de Lacoste
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<header>
+									<img src="../../images/beauty.png">
+									<h3>Beauty Success</h3>
+								</header>
+								<p>Beauty success, expert à parfum, de vente en ligne. Un parcours exceptionnel en parfumerie, un niveau très haut de vente et de distribution. Beauty success Maroc est le site qui va remettre de la dynamique dans le marché. </p>
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<header>
+									<img src="../../images/Zara.png">
+									<h3>Zara</h3>
+								</header>
+								<p>Zara est la chaîne de magasins de vêtements principale du groupe espagnol Inditex . mettre en vente des articles à des prix très accessibles, de milieu de gamme, s'inspirant des modèles des grandes maisons de la mode internationale</p>
+							</div>
+						</section>
+						<section>
+							<div class="content">
+								<header>
+									<img src="../../images/Celio.jpg">
+									<h3>Celio</h3>
+								</header>
+								<p>Chemise homme imprimée, coupe slim. Col français, manches longues. Imprimé figuratif, tissu à maille légère etc tous ca vous l trouverez chez Celio ! </p>
+							</div>
+						</section>
+					</div>
+				</div>
+			</section>
+
+		<!-- CTA -->
+			<section id="cta" class="wrapper">
+				<div class="inner">
+					<h2>Un mall chez vous ! </h2>
+					<p>Le centre commercial est le lieu typique ou vous pouvez acheter tout ce dont vous avez besoin, ustensiles de ménage, alimentaire, ect. Un grand hypermarché aux allures de building, voilà comment l'on peut définir cet immense bâtiment.Mais ce mall vous facilite cet achat et vous le rend plus proche de vous il suffit d'avoir internet et carte bancaire et hop vous aurez tous ce que vous avez acheté jusqu'à votre porte sans aucun déplacement .</p>
+				</div>
+			</section>
+
+		<!-- Testimonials -->
+			
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<h3>Notre Mall virtuel </h3>
+							<p>Le centre commercial est le lieu typique ou vous pouvez acheter tout ce dont vous avez besoin, ustensiles de ménage, alimentaire, ect. Un grand hypermarché aux allures de building, voilà comment l'on peut définir cet immense bâtiment.Mais ce mall vous facilite cet achat et vous le rend plus proche de vous il suffit d'avoir internet et carte bancaire et hop vous aurez tous ce que vous avez acheté jusqu'à votre porte sans aucun déplacement .</p>
+						</section>
+						
+						<section>
+							<h4>Nous contacter</h4>
+							<ul class="plain">
+								<li><a href="#"><i class="icon fa-twitter">&nbsp;</i>Twitter</a></li>
+								<li><a href="#"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
+								<li><a href="#"><i class="icon fa-instagram">&nbsp;</i>Instagram</a></li>
+								<li><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
+							</ul>
+						</section>
+					</div>
+				</div>
+			</footer>
+
+		<!-- scripts -->
+		<script src="../../libs/js/jquery.min.js"></script>
+		<script src="../../libs/js/browser.min.js"></script>
+		<script src="../../libs/js/breakpoints.min.js"></script>
+		<script src="../../libs/js/util.js"></script>
+		<script src="../../libs/js/main.js"></script>
+	</body>
+</html>

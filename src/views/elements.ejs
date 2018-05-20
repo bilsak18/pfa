@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Magasins</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="../../libs/css/main.css" />
+		<script src="../../libs/angular.min.js"></script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="/">Mall</a>
+				<nav>
+					<a href="#menu">Menu</a>
+
+				</nav>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+                    <% if(req.user) { %>
+					<li>
+						<h4><%= req.user.username%><label>(Connected)</label></h4>
+					</li>
+                    <% } %>
+
+                    <% nav.forEach(val => {
+						if (val.Text === 'Sign in / Sign up' && req.user) {
+							return;
+						}
+					%>
+					<li>
+						<a href="<%=val.Link%>">
+                            <%=val.Text%>
+						</a>
+					</li>
+                    <% }) %>
+
+                    <% if(req.user) { %>
+					<li>
+						<a href="/auth/logout">Disconnect</a>
+					</li>
+                    <% } %>
+				</ul>
+			</nav>
+
+		<!-- Heading -->
+			<div id="heading" >
+				<a href="/magasins">
+					<h1>Magasins</h1>
+				</a>
+			</div>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="inner">
+					<div class="content">
+
+					<!-- Elements -->
+						<section class="wrapper">
+							<div class="inner">
+								<div class="highlights">
+									<% boutiques.forEach(val => { %>
+									<section>
+										<div class="content">
+											<header>
+												<a href = "/magasins/<%=val.id%>">
+													<img src="data:image/png;base64, <%=val.image%>">
+													<h3><%=val.name%></h3>
+												</a>
+											</header>
+											<p><%=val.description%></p>
+										</div>
+									</section>
+									<% }) %>
+								</div>
+							</div>
+						</section>
+								<!-- Icons -->
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<h3>Notre Mall virtuel </h3>
+							<p>Le centre commercial est le lieu typique ou vous pouvez acheter tout ce dont vous avez besoin, ustensiles de ménage, alimentaire, ect. Un grand hypermarché aux allures de building, voilà comment l'on peut définir cet immense bâtiment.Mais ce mall vous facilite cet achat et vous le rend plus proche de vous il suffit d'avoir internet et carte bancaire et hop vous aurez tous ce que vous avez acheté jusqu'à votre porte sans aucun déplacement .</p>
+						</section>
+						<section>
+							
+						</section>
+						<section>
+							<h4>Nous contacter</h4>
+							<ul class="plain">
+								<li><a href="#"><i class="icon fa-twitter">&nbsp;</i>Twitter</a></li>
+								<li><a href="#"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
+								<li><a href="#"><i class="icon fa-instagram">&nbsp;</i>Instagram</a></li>
+								<li><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
+							</ul>
+						</section>
+					</div>
+					
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="../../libs/js/jquery.min.js"></script>
+			<script src="../../libs/js/browser.min.js"></script>
+			<script src="../../libs/js/breakpoints.min.js"></script>
+			<script src="../../libs/js/util.js"></script>
+			<script src="../../libs/js/main.js"></script>
+
+	</body>
+</html>

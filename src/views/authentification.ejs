@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <title>Authentification</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+    <!-- bower:js -->
+    <script src="../../libs/jquery/dist/jquery.js"></script>
+    <script src="../../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- endbower -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../../libs/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../libs/font-awesome/web-fonts-with-css/css/fontawesome.min.css" />
+    <!-- endbower -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../../libs/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../libs/css/main.css">
+    <link rel="stylesheet" href="../../libs/css/style.css">
+    <!-- endinject -->
+    <script src="../../libs/angular.min.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <a class="logo" href="/">Mall</a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+    <!-- Nav -->
+    <nav id="menu">
+        <ul class="links">
+            <% nav.forEach(val => {
+                if(val.Text === 'Panier' && !req.user) {
+                    return;
+                }
+            %>
+            <li>
+                <a href="<%=val.Link%>">
+                    <%=val.Text%>
+                </a>
+            </li>
+            <% }) %>
+        </ul>
+    </nav>
+
+    <!-- Heading -->
+    <div id="heading" >
+        <a href="/auth">
+            <h1>Authentification</h1>
+        </a>
+    </div>
+
+
+    <div class="container">
+        <div class="card"></div>
+        <div class="card">
+            <h1 class="title">Connection</h1>
+            <form name="signIn" action="/auth/signIn" method="post">
+                <div class="input-container">
+                    <input type="text" id="username" name="username" required="required"/>
+                    <label for="username">identifiant</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="pwd" name="pwd" required="required"/>
+                    <label for="pwd">mot de passe</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="button-container">
+                    <button type="submit"><span>Connection</span></button>
+                </div>
+                <div class="footer"><a href="#">mot de passe oublié?</a></div>
+            </form>
+        </div>
+
+        <div class="card alt">
+            <div class="toggle"></div>
+            <h1 class="title">Sign up
+                <div class="close"></div>
+            </h1>
+            <form name="signUp" action="/auth/signUp" method="post">
+                <div class="input-container">
+                    <input type="text" id="username1" name="username1" required="required"/>
+                    <label for="username1">Identifiant</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="pwd1" name="pwd1" required="required"/>
+                    <label for="pwd1">mot de passe</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="pwd2" name="pwd2" required="required"/>
+                    <label for="pwd2">retapez le mot de passe</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="button-container">
+                    <button type="submit"><span>Confirm</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer id="footer">
+        <div class="inner">
+            <div class="content">
+                <section>
+                    <h3>Notre Mall virtuel </h3>
+                    <p>Le centre commercial est le lieu typique ou vous pouvez acheter tout ce dont vous avez besoin, ustensiles de ménage, alimentaire, ect. Un grand hypermarché aux allures de building, voilà comment l'on peut définir cet immense bâtiment.Mais ce mall vous facilite cet achat et vous le rend plus proche de vous il suffit d'avoir internet et carte bancaire et hop vous aurez tous ce que vous avez acheté jusqu'à votre porte sans aucun déplacement .</p>
+                </section>
+
+                <section>
+                    <h4>Nous contacter</h4>
+                    <ul class="plain">
+                        <li><a href="#"><i class="icon fa-twitter">&nbsp;</i>Twitter</a></li>
+                        <li><a href="#"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
+                        <li><a href="#"><i class="icon fa-instagram">&nbsp;</i>Instagram</a></li>
+                        <li><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </footer>
+
+    <!-- scripts -->
+    <script src="../../libs/js/jquery.min.js"></script>
+    <script src="../../libs/js/browser.min.js"></script>
+    <script src="../../libs/js/breakpoints.min.js"></script>
+    <script src="../../libs/js/util.js"></script>
+    <script src="../../libs/js/main.js"></script>
+    <script  src="../../libs/js/index.js"></script>
+
+</body>
+</html>

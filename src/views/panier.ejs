@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/html">
+	<head>
+		<title>Products</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="../../libs/css/main.css" />
+		<script src="../../libs/angular.min.js"></script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="/">Mall</a>
+				<nav>
+					<a href="#menu">Menu</a>
+
+				</nav>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+                    <% if(req.user) { %>
+					<li>
+						<h4><%= req.user.username%><label>(Connected)</label></h4>
+					</li>
+                    <% } %>
+
+                    <%
+					nav.forEach(val => {
+						if (val.Text === 'Sign in / Sign up' && req.user) {
+							return;
+						}
+
+						if(val.Text === 'Panier' && !req.user) {
+							return;
+						}
+					%>
+					<li>
+						<a href="<%=val.Link%>">
+                            <%=val.Text%>
+						</a>
+					</li>
+                    <% }) %>
+
+					<% if(req.user) { %>
+					<li>
+						<a href="/auth/logout">Disconnect</a>
+					</li>
+					<% } %>
+				</ul>
+			</nav>
+
+		<!-- Heading -->
+			<div id="heading" >
+				<a href="/panier">
+					<h1>Panier</h1>
+				</a>
+			</div>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="inner">
+					<div class="content">
+
+					<!-- Elements -->
+						<section class="wrapper">
+							<div class="inner">
+								<div class="highlights">
+									<% panier.forEach(val => { %>
+									<section>
+										<div class="content">
+											<form action="/magasins/<%=val.id_boutique%>" method="post">
+											<header>
+												<img src="data:image/png;base64, <%=val.image%>">
+												<input name="productId" type="hidden" value="<%=val.ref_produit%>">
+												<input name="magasinId" type="hidden" value="<%=val.id_boutique%>">
+											</header>
+												<p><%=val.description%></p>
+												<h4>Quantité: <%=val.qte_produit%></h4>
+												<h3>Prix: <%=(val.prix * val.qte_produit)%> Dhs</h3>
+											<ul class="actions">
+												<li>
+													<input class="button" type="submit" value="Supprimer du panier"/>
+												</li>
+											</ul>
+											</form>
+										</div>
+									</section>
+									<% }) %>
+								</div>
+							</div>
+						</section>
+								<!-- Icons -->
+
+								<!-- Total -->
+						<div align="right">
+							<%
+								let total = 0;
+								panier.forEach(val => {
+								    total += val.prix * val.qte_produit;
+								})
+							%>
+							<h2>Prix total: <%=total%> Dhs</h2>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<h3>Notre Mall virtuel </h3>
+							<p>Le centre commercial est le lieu typique ou vous pouvez acheter tout ce dont vous avez besoin, ustensiles de ménage, alimentaire, ect. Un grand hypermarché aux allures de building, voilà comment l'on peut définir cet immense bâtiment.Mais ce mall vous facilite cet achat et vous le rend plus proche de vous il suffit d'avoir internet et carte bancaire et hop vous aurez tous ce que vous avez acheté jusqu'à votre porte sans aucun déplacement .</p>
+						</section>
+						<section>
+							
+						</section>
+						<section>
+							<h4>Nous contacter</h4>
+							<ul class="plain">
+								<li><a href="#"><i class="icon fa-twitter">&nbsp;</i>Twitter</a></li>
+								<li><a href="#"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
+								<li><a href="#"><i class="icon fa-instagram">&nbsp;</i>Instagram</a></li>
+								<li><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
+							</ul>
+						</section>
+					</div>
+					
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="../../libs/js/jquery.min.js"></script>
+			<script src="../../libs/js/browser.min.js"></script>
+			<script src="../../libs/js/breakpoints.min.js"></script>
+			<script src="../../libs/js/util.js"></script>
+			<script src="../../libs/js/main.js"></script>
+
+	</body>
+</html>
