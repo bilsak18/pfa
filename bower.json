@@ -1,0 +1,40 @@
+{
+  "name": "pfa site",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "bilsak18 <bilalsakah@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.5",
+    "font-awesome": "^5.0.8"
+  },
+  "resolutions": {
+    "bootstrap": "3.3.5"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.min.css",
+        "dist/js/bootstrap.min.js",
+        "less/bootstrap.less"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "web-fonts-with-css/less/fontawesome.less",
+        "web-fonts-with-css/css/fontawesome.min.css",
+        "web-fonts-with-css/css/fontawesome.scss"
+      ]
+    }
+  }
+}
