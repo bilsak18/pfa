@@ -14,7 +14,6 @@
       <change beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
       <change beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="" afterPath="$PROJECT_DIR$/app.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/bower.json" />
       <change beforePath="" afterPath="$PROJECT_DIR$/gulpfile.js" />
       <change beforePath="" afterPath="$PROJECT_DIR$/src/config/passport.js" />
       <change beforePath="" afterPath="$PROJECT_DIR$/src/config/strategies/local.strategy.js" />
@@ -293,12 +292,12 @@
       <workItem from="1524144126670" duration="19598000" />
       <workItem from="1524212311006" duration="7123000" />
       <workItem from="1524222974941" duration="5238000" />
-      <workItem from="1526840581087" duration="2789000" />
+      <workItem from="1526840581087" duration="3129000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="248499000" />
+    <option name="totallyTimeSpent" value="248839000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
